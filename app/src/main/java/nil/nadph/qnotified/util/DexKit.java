@@ -43,7 +43,6 @@ import static nil.nadph.qnotified.util.Utils.getHostVersionCode32;
 import static nil.nadph.qnotified.util.Utils.invoke_virtual;
 import static nil.nadph.qnotified.util.Utils.log;
 import static nil.nadph.qnotified.util.Utils.logi;
-import static nil.nadph.qnotified.util.Utils.readByReader;
 
 /**
  * What the fuck?
@@ -101,7 +100,7 @@ public class DexKit {
     public static final int N_BASE_CHAT_PIE__chooseMsg = 20005;
     public static final int N_LeftSwipeReply_Helper__reply = 20006;
     // fixme
-    public static final int N_TROOP_BASE_PIE__showNewTotalMemberCount = 20007;
+    //public static final int N_TROOP_BASE_PIE__showNewTotalMemberCount = 20007;
     
     public static final int DEOBF_NUM_N = 7;
     
@@ -323,8 +322,8 @@ public class DexKit {
                 return "base_chat_pie__chooseMsg";
             case N_LeftSwipeReply_Helper__reply:
                 return "leftswipereply_helper__reply";
-            case N_TROOP_BASE_PIE__showNewTotalMemberCount:
-                return "troop_base_pie__showTotalMemberCount";
+//            case N_TROOP_BASE_PIE__showNewTotalMemberCount:
+//                return "troop_base_pie__showTotalMemberCount";
         }
         throw new IndexOutOfBoundsException("No class index for " + i + ",max = " + DEOBF_NUM_C);
     }
@@ -439,9 +438,9 @@ public class DexKit {
             case N_LeftSwipeReply_Helper__reply:
                 ret = "com/tencent/mobileqq/bubble/LeftSwipeReplyHelper";
                 break;
-            case N_TROOP_BASE_PIE__showNewTotalMemberCount:
-                ret = "com.tencent.mobileqq.activity.aio.core.TroopChatPie";
-                break;
+//            case N_TROOP_BASE_PIE__showNewTotalMemberCount:
+//                ret = "com.tencent.mobileqq.activity.aio.core.TroopChatPie";
+//                break;
             case N_BASE_CHAT_PIE__INIT:
             case N_BASE_CHAT_PIE__handleNightMask:
             case N_BASE_CHAT_PIE__updateSession:
@@ -537,8 +536,8 @@ public class DexKit {
                 return new byte[][]{new byte[]{0x1C, 0x5B, 0x73, 0x65, 0x6E, 0x64, 0x4D, 0x75, 0x6C, 0x74, 0x69, 0x4D, 0x73, 0x67, 0x5D, 0x64, 0x61, 0x74, 0x61, 0x2E, 0x6C, 0x65, 0x6E, 0x67, 0x74, 0x68, 0x20, 0x3D, 0x20}};
             case N_LeftSwipeReply_Helper__reply:
                 return new byte[][]{new byte[]{0x09, 0x30, 0x58, 0x38, 0x30, 0x30, 0x41, 0x39, 0x32, 0x46}};
-            case N_TROOP_BASE_PIE__showNewTotalMemberCount:
-                return new byte[][]{new byte[]{0x17, 0x73, 0x68, 0x6f, 0x77, 0x4e, 0x65, 0x77, 0x54, 0x72, 0x6f, 0x6f, 0x70, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x43, 0x6f, 0x75, 0x6e, 0x74}};
+//            case N_TROOP_BASE_PIE__showNewTotalMemberCount:
+//                return new byte[][]{new byte[]{0x17, 0x73, 0x68, 0x6f, 0x77, 0x4e, 0x65, 0x77, 0x54, 0x72, 0x6f, 0x6f, 0x70, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x43, 0x6f, 0x75, 0x6e, 0x74}};
             case C_ClockInEntryHelper:
                 return new byte[][]{new byte[]{0x13, 0x69, 0x73, 0x53, 0x68, 0x6f, 0x77, 0x54, 0x6f, 0x67, 0x65, 0x74, 0x68, 0x65, 0x72, 0x45, 0x6e, 0x74, 0x72, 0x79}};
             case C_CaptureUtil:
@@ -620,8 +619,8 @@ public class DexKit {
                 return new int[]{6, 2, 7, 3};
             case C_CustomWidgetUtil:
                 return new int[]{5, 4, 9};
-            case N_TROOP_BASE_PIE__showNewTotalMemberCount:
-                return new int[]{6, 8};
+//            case N_TROOP_BASE_PIE__showNewTotalMemberCount:
+//                return new int[]{6, 8};
             case C_ClockInEntryHelper:
                 return new int[]{6, 2};
             case C_CaptureUtil:
@@ -780,7 +779,7 @@ public class DexKit {
                 }
                 break;
             case N_LeftSwipeReply_Helper__reply:
-			case N_TROOP_BASE_PIE__showNewTotalMemberCount:
+//			case N_TROOP_BASE_PIE__showNewTotalMemberCount:
                 //TODO: this must only has one result
 
                 return (DexMethodDescriptor) __methods.toArray()[0];
