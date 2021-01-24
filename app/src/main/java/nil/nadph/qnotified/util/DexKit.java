@@ -85,18 +85,27 @@ public class DexKit {
     public static final int C_ZipUtils_biz = 28;
     public static final int C_HttpDownloader = 29;
     public static final int C_MultiMsg_Manager = 30;
+    public static final int C_ClockInEntryHelper = 31;
+    public static final int C_CaptureUtil = 32;
+    public static final int C_AvatarUtil = 33;
+    //for old version qq NewRoundHead
+    public static final int C_FaceManager = 34;
+    public static final int C_SmartDeviceProxyMgr = 35;
     //the last index
-    public static final int DEOBF_NUM_C = 30;
-
+    public static final int DEOBF_NUM_C = 35;
+    
     public static final int N_BASE_CHAT_PIE__INIT = 20001;
     public static final int N_BASE_CHAT_PIE__handleNightMask = 20002;
     public static final int N_BASE_CHAT_PIE__updateSession = 20003;
     public static final int N_BASE_CHAT_PIE__createMulti = 20004;
     public static final int N_BASE_CHAT_PIE__chooseMsg = 20005;
     public static final int N_LeftSwipeReply_Helper__reply = 20006;
-    public static final int DEOBF_NUM_N = 6;
-
-
+    // fixme
+    public static final int N_TROOP_BASE_PIE__showNewTotalMemberCount = 20007;
+    
+    public static final int DEOBF_NUM_N = 7;
+    
+    
     @Nullable
     public static boolean prepareFor(int i) {
         if (i / 10000 == 0) {
@@ -292,6 +301,16 @@ public class DexKit {
                 return "http_downloader";
             case C_MultiMsg_Manager:
                 return "multimsg_manager";
+            case C_ClockInEntryHelper:
+                return "clockinentryhelper";
+            case C_CaptureUtil:
+                return "captureutil";
+            case C_AvatarUtil:
+                return "avatarutil";
+            case C_FaceManager:
+                return "facemanager";
+            case C_SmartDeviceProxyMgr:
+                return "smartdeviceproxymgr";
             case N_BASE_CHAT_PIE__INIT:
                 return "base_chat_pie__init";
             case N_BASE_CHAT_PIE__handleNightMask:
@@ -304,6 +323,8 @@ public class DexKit {
                 return "base_chat_pie__chooseMsg";
             case N_LeftSwipeReply_Helper__reply:
                 return "leftswipereply_helper__reply";
+            case N_TROOP_BASE_PIE__showNewTotalMemberCount:
+                return "troop_base_pie__showTotalMemberCount";
         }
         throw new IndexOutOfBoundsException("No class index for " + i + ",max = " + DEOBF_NUM_C);
     }
@@ -403,8 +424,23 @@ public class DexKit {
             case C_MultiMsg_Manager:
                 ret = "com/tencent/mobileqq/multimsg/MultiMsgManager";
                 break;
+            case C_ClockInEntryHelper:
+                ret = "com/tencent/mobileqq/activity/aio/helper/ClockInEntryHelper";
+                break;
+            case C_CaptureUtil:
+                ret = "com.tencent.mobileqq.richmedia.capture.util.CaptureUtil";
+                break;
+            case C_AvatarUtil:
+                ret = "com.tencent.mobileqq.avatar.utils.AvatarUtil";
+                break;
+            case C_SmartDeviceProxyMgr:
+                ret = "com.tencent.device.devicemgr.SmartDeviceProxyMgr";
+                break;
             case N_LeftSwipeReply_Helper__reply:
                 ret = "com/tencent/mobileqq/bubble/LeftSwipeReplyHelper";
+                break;
+            case N_TROOP_BASE_PIE__showNewTotalMemberCount:
+                ret = "com.tencent.mobileqq.activity.aio.core.TroopChatPie";
                 break;
             case N_BASE_CHAT_PIE__INIT:
             case N_BASE_CHAT_PIE__handleNightMask:
@@ -479,7 +515,7 @@ public class DexKit {
             case C_GroupAppActivity:
                 return new byte[][]{new byte[]{0x11, 0x6F, 0x6E, 0x44, 0x72, 0x61, 0x77, 0x65, 0x72, 0x53, 0x74, 0x61, 0x72, 0x74, 0x4F, 0x70, 0x65, 0x6E}};
             case C_IntimateDrawer:
-                return new byte[][]{new byte[]{0x49, 0x6e, 0x74, 0x69, 0x6d, 0x61, 0x74, 0x65, 0x44, 0x72, 0x61, 0x77, 0x65, 0x72}};
+                return new byte[][]{new byte[]{0x14, 0x49, 0x6e, 0x74, 0x69, 0x6d, 0x61, 0x74, 0x65, 0x44, 0x72, 0x61, 0x77, 0x65, 0x72}};
             case C_ZipUtils_biz: {
                 return new byte[][]{new byte[]{0x10, 0x2C, 0x5A, 0x69, 0x70, 0x45, 0x6E, 0x74, 0x72, 0x79, 0x20, 0x6E, 0x61, 0x6D, 0x65, 0x3A, 0x20}};
             }
@@ -501,6 +537,18 @@ public class DexKit {
                 return new byte[][]{new byte[]{0x1C, 0x5B, 0x73, 0x65, 0x6E, 0x64, 0x4D, 0x75, 0x6C, 0x74, 0x69, 0x4D, 0x73, 0x67, 0x5D, 0x64, 0x61, 0x74, 0x61, 0x2E, 0x6C, 0x65, 0x6E, 0x67, 0x74, 0x68, 0x20, 0x3D, 0x20}};
             case N_LeftSwipeReply_Helper__reply:
                 return new byte[][]{new byte[]{0x09, 0x30, 0x58, 0x38, 0x30, 0x30, 0x41, 0x39, 0x32, 0x46}};
+            case N_TROOP_BASE_PIE__showNewTotalMemberCount:
+                return new byte[][]{new byte[]{0x17, 0x73, 0x68, 0x6f, 0x77, 0x4e, 0x65, 0x77, 0x54, 0x72, 0x6f, 0x6f, 0x70, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x43, 0x6f, 0x75, 0x6e, 0x74}};
+            case C_ClockInEntryHelper:
+                return new byte[][]{new byte[]{0x13, 0x69, 0x73, 0x53, 0x68, 0x6f, 0x77, 0x54, 0x6f, 0x67, 0x65, 0x74, 0x68, 0x65, 0x72, 0x45, 0x6e, 0x74, 0x72, 0x79}};
+            case C_CaptureUtil:
+                return new byte[][]{new byte[]{0x0d, 0x63, 0x6c, 0x69, 0x70, 0x56, 0x69, 0x64, 0x65, 0x6f, 0x53, 0x69, 0x7a, 0x65}};
+            case C_AvatarUtil:
+                return new byte[][]{new byte[]{0x0a, 0x41, 0x76, 0x61, 0x74, 0x61, 0x72, 0x55, 0x74, 0x69, 0x6c}};
+            case C_FaceManager:
+                return new byte[][]{new byte[]{0x0b, 0x46, 0x61, 0x63, 0x65, 0x4d, 0x61, 0x6e, 0x61, 0x67, 0x65, 0x72}};
+            case C_SmartDeviceProxyMgr:
+                return new byte[][]{new byte[]{0x1a, 0x53, 0x6d, 0x61, 0x72, 0x74, 0x44, 0x65, 0x76, 0x69, 0x63, 0x65, 0x50, 0x72, 0x6f, 0x78, 0x79, 0x4d, 0x67, 0x72, 0x20, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65}};
         }
         throw new IndexOutOfBoundsException("No class index for " + i + ",max = " + DEOBF_NUM_C);
     }
@@ -572,6 +620,18 @@ public class DexKit {
                 return new int[]{6, 2, 7, 3};
             case C_CustomWidgetUtil:
                 return new int[]{5, 4, 9};
+            case N_TROOP_BASE_PIE__showNewTotalMemberCount:
+                return new int[]{6, 8};
+            case C_ClockInEntryHelper:
+                return new int[]{6, 2};
+            case C_CaptureUtil:
+                return new int[]{10, 4};
+            case C_AvatarUtil:
+                return new int[]{8};
+            case C_FaceManager:
+                return new int[]{3};
+            case C_SmartDeviceProxyMgr:
+                return new int[]{5, 2};
         }
         throw new IndexOutOfBoundsException("No class index for " + i + ",max = " + DEOBF_NUM_C);
     }
@@ -589,6 +649,7 @@ public class DexKit {
             case C_TEST_STRUCT_MSG:
             case C_TimeFormatterUtils:
             case C_ZipUtils_biz:
+            case C_SmartDeviceProxyMgr:
                 a:
                 for (DexMethodDescriptor m : __methods) {
                     Class clz = Initiator.load(m.declaringClass);
@@ -600,6 +661,8 @@ public class DexKit {
                 }
                 break;
             case C_FLASH_PIC_HELPER:
+            case C_CaptureUtil:
+            case C_AvatarUtil:
                 a:
                 for (DexMethodDescriptor m : __methods) {
                     Class clz = Initiator.load(m.declaringClass);
@@ -717,7 +780,9 @@ public class DexKit {
                 }
                 break;
             case N_LeftSwipeReply_Helper__reply:
+			case N_TROOP_BASE_PIE__showNewTotalMemberCount:
                 //TODO: this must only has one result
+
                 return (DexMethodDescriptor) __methods.toArray()[0];
             case N_BASE_CHAT_PIE__createMulti:
                 for (DexMethodDescriptor m : __methods) {
@@ -756,6 +821,8 @@ public class DexKit {
                 }
                 break;
             case C_TogetherControlHelper:
+            case C_ClockInEntryHelper:
+            case C_FaceManager:
                 for (DexMethodDescriptor m : __methods) {
                     Class clz = Initiator.load(m.declaringClass);
                     if (clz.isEnum()) continue;
